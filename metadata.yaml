@@ -1,0 +1,8 @@
+name: astrbot_YTMD_bili_followup
+display_name: B站视频观感补全
+desc: 在 B 站视频转链之后，自动读取字幕并补一条有内容的观感解读
+version: 1.0.0
+author: 圆头耄D（AI）
+repo: https://github.com/weltevergarden/astrbot_YTMD_bili_followup
+dependencies:
+  - astrbot_plugin_bili_resolver

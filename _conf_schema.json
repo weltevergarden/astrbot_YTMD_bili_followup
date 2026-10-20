@@ -1,0 +1,63 @@
+{
+  "enable": {
+    "description": "启用字幕补解读",
+    "type": "bool",
+    "default": true
+  },
+  "delay_seconds": {
+    "description": "等待 bili_resolver 先发消息的秒数（给转链卡片留出时间）",
+    "type": "int",
+    "default": 8,
+    "hint": "太小会插在卡片前面，太大会显得延迟很高，8 秒一般合适"
+  },
+  "max_subtitle_chars": {
+    "description": "送入模型的最大字幕字数",
+    "type": "int",
+    "default": 5000,
+    "hint": "超长字幕会保留开头 60% 和结尾 40%，中间标注省略。设太大会拖慢速度甚至超时"
+  },
+  "min_subtitle_chars": {
+    "description": "字幕低于此字数视为信息不足，直接放弃输出",
+    "type": "int",
+    "default": 120
+  },
+  "silent_on_no_subtitle": {
+    "description": "视频没有字幕时是否保持静默",
+    "type": "bool",
+    "default": false,
+    "hint": "关闭时会回一句敷衍的话，开启则完全不说话"
+  },
+  "silent_on_fail": {
+    "description": "读取失败时是否保持静默",
+    "type": "bool",
+    "default": true
+  },
+  "llm_provider_id": {
+    "description": "用于生成解读的模型 Provider ID（留空则使用当前默认模型）",
+    "type": "string",
+    "default": "",
+    "hint": "在 AstrBot 面板的「服务提供商」里可以看到 Provider ID"
+  },
+  "bilibili_cookie": {
+    "description": "B 站登录 Cookie（不填部分视频取不到字幕）",
+    "type": "object",
+    "items": {
+      "sessdata": {
+        "description": "SESSDATA（浏览器 Cookie 里的 SESSDATA 值）",
+        "type": "string",
+        "default": ""
+      },
+      "bili_jct": {
+        "description": "bili_jct（浏览器 Cookie 里的 bili_jct 值）",
+        "type": "string",
+        "default": ""
+      }
+    }
+  },
+  "persona_prompt": {
+    "description": "生成观感时使用的人格提示词",
+    "type": "text",
+    "default": "你是一个B站视频观感点评者。请根据给定字幕，用简短、自然、口语化的中文说出你的观感和看点，像在QQ群里跟朋友聊视频一样。不要复述字幕原文，不要分段列点，不要用Markdown，控制在三到五句话以内。",
+    "hint": "可以整段换成你自己 bot 的人格描述，观感就会用那个语气说话"
+  }
+}
