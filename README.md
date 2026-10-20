@@ -1,2 +1,3 @@
 # astrbot_YTMD_bili_followup
-B站视频观后感补全计划
+基于astrbot的aibot bili_resolver插件的B站视频观后感补全计划
+参考biliread插件功能
